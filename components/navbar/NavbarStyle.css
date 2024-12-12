@@ -1,0 +1,34 @@
+.nav-body {
+    @apply flex flex-row bg-white h-16 drop-shadow-md pl-96 pr-96
+}
+
+.content{
+    @apply grid grid-cols-2 w-screen  
+}
+
+.icon-contact{
+    @apply ml-1 mr-1
+}
+
+.icon-menu{
+    @apply hidden
+}
+
+.my-logo{
+    @apply flex items-center  text-black 
+}
+
+@screen xs {
+    .nav-body {
+        @apply flex flex-row bg-white h-16 drop-shadow-md pl-10 pr-10
+    }
+    .content{
+        @apply grid grid-cols-2 w-screen  
+    }
+    .my-logo{
+        @apply flex justify-center items-center  text-black
+    }
+    .icon-menu{
+        @apply block flex flex-row justify-end items-center 
+    }
+  }
