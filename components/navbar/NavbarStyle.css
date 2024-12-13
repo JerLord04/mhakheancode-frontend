@@ -1,5 +1,5 @@
 .nav-body {
-    @apply flex flex-row bg-white h-16 drop-shadow-md pl-96 pr-96
+    @apply flex flex-row bg-blue-400 h-16 pl-96 pr-96
 }
 
 .content{
@@ -15,18 +15,25 @@
 }
 
 .my-logo{
-    @apply flex items-center  text-black 
+    @apply flex items-center  text-white 
 }
+
+.sliderMemu{
+    @apply fixed top-0  w-[300px] h-full bg-gray-800 text-white transition-all duration-300 ease-in-out overflow-y-auto
+}
+
+
+
 
 @screen xs {
     .nav-body {
-        @apply flex flex-row bg-white h-16 drop-shadow-md pl-10 pr-10
+        @apply flex flex-row bg-blue-400 h-16  pl-10 pr-10
     }
     .content{
         @apply grid grid-cols-2 w-screen  
     }
     .my-logo{
-        @apply flex justify-center items-center  text-black
+        @apply flex justify-center items-center  text-white
     }
     .icon-menu{
         @apply block flex flex-row justify-end items-center 
