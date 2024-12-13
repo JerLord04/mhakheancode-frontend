@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-// import { FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -10,6 +10,7 @@ import { SiYoutubekids } from "react-icons/si";
 import { AiOutlineMenu } from "react-icons/ai";
 
 import "../../components/navbar/NavbarStyle.css";
+import DropDown from "../dropdown/DropDown";
 
 const Navbar = () => {
   const [moonColorFlg, setMoonColorFlg] = useState(true);
@@ -44,10 +45,18 @@ const Navbar = () => {
         <div className="my-logo">mhakheancode.</div>
         <div className="flex justify-end items-center xs:hidden">
           <div className="flex flex-row ">
-            <FaGithub className="icon-contact " size={"20"} color="white" />
+            <FaGithub className="icon-contact" size={"20"} color="white" />
             <FaLinkedin className="icon-contact" size={"20"} color="white" />
             <MdEmail className="icon-contact" size={"20"} color="white" />
             <SiYoutubekids className="icon-contact" size={"20"} color="white" />
+
+            <DropDown
+              trigger={
+                <FaSearch className="icon-contact " size={"20"} color="white" />
+              }
+            >
+              <div>Test Drop Down</div>
+            </DropDown>
           </div>
           <div
             onMouseEnter={iconMoonMouseHover}

@@ -7,7 +7,7 @@
 }
 
 .icon-contact{
-    @apply ml-1 mr-1
+    @apply ml-1 mr-1 cursor-pointer
 }
 
 .icon-menu{
