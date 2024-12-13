@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <div className="nav-body">
       <div className="content">
-        <div className="my-logo text-lg font-bold">mhakheancode.</div>
+        <div className="my-logo text-lg font-bold z-[100]">mhakheancode.</div>
         <div className="flex justify-end items-center xs:hidden">
           <div className="flex flex-row justify-center items-center">
             <DropDown
@@ -150,7 +150,11 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex flex-row"
             >
-              <FaLinkedin className="icon-contact" size={"20"} color="#0a66c2" />
+              <FaLinkedin
+                className="icon-contact"
+                size={"20"}
+                color="#0a66c2"
+              />
               <div>LinkIn</div>
             </a>
           </div>
@@ -161,11 +165,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex flex-row"
             >
-              <SiYoutubekids
-                className="icon-contact"
-                size={"20"}
-                color="red"
-              />
+              <SiYoutubekids className="icon-contact" size={"20"} color="red" />
               <div>Youtube.com</div>
             </a>
           </div>
