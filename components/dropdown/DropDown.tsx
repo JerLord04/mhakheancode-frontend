@@ -5,10 +5,12 @@ import "../../components/dropdown/DropDownStyles.css";
 interface DropDownProps {
   trigger: ReactNode;
   children: ReactNode;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const DropDown: React.FC<DropDownProps> = ({ trigger, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const DropDown: React.FC<DropDownProps> = ({ trigger, children,isOpen ,setIsOpen}) => {
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

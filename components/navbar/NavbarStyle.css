@@ -19,10 +19,16 @@
 }
 
 .sliderMemu{
-    @apply fixed top-0  w-[300px] h-full bg-gray-800 text-white transition-all duration-300 ease-in-out overflow-y-auto
+    @apply fixed top-0  w-[70%] h-full bg-white text-white transition-all duration-300 ease-in-out overflow-y-auto shadow-lg
 }
 
+.search-bar {
+    @apply flex flex-row border rounded-2xl  h-[30px] bg-white
+}
 
+.text-input{
+    @apply  rounded-none rounded-r-2xl
+}
 
 
 @screen xs {

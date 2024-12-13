@@ -1,0 +1,7 @@
+.search-bar {
+    @apply flex flex-row border rounded-2xl  h-[30px] bg-white
+}
+
+.icon-contact{
+    @apply ml-1 mr-1 cursor-pointer
+}
