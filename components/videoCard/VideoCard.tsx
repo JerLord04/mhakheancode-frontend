@@ -1,7 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import "../videoCard/VideoCardStyles.css";
+
+// import { FaPlay } from "react-icons/fa";
+import { IoMdPlay } from "react-icons/io";
 
 interface VideoCardProps {
   src: string;
@@ -10,12 +13,25 @@ interface VideoCardProps {
   date: string;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ src, alt, title,date }) => {
+const VideoCard: React.FC<VideoCardProps> = ({ src, alt, title, date }) => {
+  const [showPlayIcon, setShowPlayIcon] = useState<boolean>(false);
+
+  const setMouseHoverCard = () => {
+    setShowPlayIcon(true);
+  };
+
+  const setMouseLeaveCard = () => {
+    setShowPlayIcon(false);
+  };
+
   return (
-    <div className="flex flex-col w-[190px] h-[200px] rounded-md shadow-sm cursor-pointer mt-3">
-      <img src={src} alt="Example" className="w-full h-1/2 object-cover rounded-t-lg" />
-      <div className="p-2 bg-slate-950 h-full text-md">{title}</div>
-      <div className="bg-slate-950  text-sm font-light pl-2 rounded-b-lg">{date}</div>
+    <div onMouseEnter={setMouseHoverCard} onMouseLeave={setMouseLeaveCard} className="card-body">
+      <div className="card-section-1">
+        <img src={src} alt={alt} className="w-full h-full rounded-t-md" />
+        <IoMdPlay className={`absolute top-10 left-20 transition-all duration-300 ease-in-out ${showPlayIcon ? "block" : "hidden"}`} size={30} />
+      </div>
+      <div className="pl-2 pt-2">{title}</div>
+      <div className="pl-1">{date}</div>
     </div>
   );
 };
