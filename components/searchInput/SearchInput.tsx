@@ -16,7 +16,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ text, setText }) => {
   return (
     <div className="search-bar">
       <div className="flex justify-center items-center">
-        <FaSearch className="icon-contact " size={"20"} color="#3b82f6" />
+        <FaSearch className="icon-contact " size={"20"} color="#172554" />
       </div>
       <input
         className="text-input ml-2 text-black font-bold"
