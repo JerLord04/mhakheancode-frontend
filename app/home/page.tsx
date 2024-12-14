@@ -8,6 +8,7 @@ import { IoIosLink } from "react-icons/io";
 import DocsCard from "@/components/docsCard/DocsCard";
 import Navbar from "@/components/navbar/Navbar";
 import { FaTags } from "react-icons/fa";
+import TagCard from "@/components/tagCard/TagCard";
 
 const Home = () => {
   const [scrollDirection, setScrollDirection] = useState<string | null>(null);
@@ -121,6 +122,25 @@ const Home = () => {
           </div>
           <div className="flex flex-col justify-center text-white">
             <div className="grid grid-cols-1 gap-2 bg-gray-800 w-full p-2 border border-gray-900 rounded-b-sm">
+              <div className="flex flex-row flex-wrap ">
+                {[
+                  "JAVA",
+                  "PYTHON",
+                  "KOTLIN",
+                  "C#",
+                  "C++",
+                  "PHP",
+                  "ReactNative",
+                  "Golang",
+                  "Node.js",
+                  "AWS",
+                ].map((item, index) => (
+                  <div key={index} className="flex p-3">
+                    <TagCard tag={item} />
+                  </div>
+                ))}
+              </div>
+
               <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูแท็กทั้งหมด >`}</div>
             </div>
           </div>

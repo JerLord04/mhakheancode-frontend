@@ -11,7 +11,7 @@ const TagCard: React.FC<TagCardProps> = ({ tag }) => {
   return (
     <div className="tag-body">
       <FaTags className="ml-2"/>
-      <div className="ml-2 text-sm font-bold">{tag}</div>
+      <div className="ml-2 text-sm font-bold pr-2">{tag}</div>
     </div>
   );
 };

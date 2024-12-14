@@ -1,5 +1,5 @@
 .mobile-body {
-  @apply flex flex-col pl-[550px] pr-[550px] h-auto mt-2 bg-gray-900 pt-1 pb-20 border-l-2 border-r-2 w-screen;
+  @apply flex flex-col flex-wrap pl-[550px] pr-[550px] h-auto mt-2 bg-gray-900 pt-1 pb-20 border-l-2 border-r-2 w-screen;
 }
 
 .footer-style {
