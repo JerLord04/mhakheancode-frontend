@@ -43,7 +43,24 @@ const Navbar = () => {
   return (
     <div className="nav-body">
       <div className="content">
-        <div className="my-logo text-lg font-bold z-[100]">mhakheancode.</div>
+        <div className="flex flex-row">
+          <div className="my-logo text-lg font-bold z-[100]">
+            <a
+              href="http://localhost:3000"
+              target=""
+              rel="noopener noreferrer"
+            >
+              mhakheancode.
+            </a>
+          </div>
+          <div className="my-logo ml-8 cursor-pointer hover:text-red-500">
+            Posts
+          </div>
+          <div className="my-logo ml-5 cursor-pointer hover:text-red-500">
+            Document
+          </div>
+        </div>
+
         <div className="flex justify-end items-center xs:hidden">
           <div className="flex flex-row justify-center items-center">
             <DropDown
