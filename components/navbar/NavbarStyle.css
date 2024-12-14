@@ -1,9 +1,13 @@
 .nav-body {
-  @apply flex flex-row bg-blue-950 h-16 pl-[550px] pr-[550px];
+  @apply flex flex-row flex-wrap bg-blue-950 h-16
 }
 
-.content {
-  @apply grid grid-cols-2 w-screen;
+/* .content {
+  @apply grid grid-cols-2 w-screen pl-[550px] pr-[550px];
+} */
+
+.content{
+  @apply flex flex-row flex-wrap w-[900px] mx-auto
 }
 
 .icon-contact {

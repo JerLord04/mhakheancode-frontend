@@ -13,12 +13,12 @@ const Home = () => {
     router.push("/home");
   };
   return (
-    <div className="flex flex-col w-screen h-screen bg-blue-950">
+    <div className="flex flex-col flex-wrap bg-blue-950 w-screen h-screen">
       <div className="fixed top-0 left-0 w-full z-50  text-white">
         <Navbar />
       </div>
-      <div className="flex flex-col pt-20 pb-20 h-full justify-center items-center">
-        <div className="text-7xl font-bold">mhakheancode.</div>
+      <div className="flex flex-col justify-center items-center h-full w-[1000px] mx-auto">
+        <div className="text-7xl font-bold text-white">mhakheancode.</div>
         <div className="flex flex-row mt-5">
           <div>
             <CommondButton
@@ -49,11 +49,16 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="mt-40 text-3xl">
-          {`“Code is like humor. When you have to explain it, it’s bad.”`}
-        </div>
-        <div className="mt-10 text-1xl">
-          {`by Cory House`}
+
+        <div className="fixed bottom-10">
+          <div className="flex flex-col flex wrap justify-center items-center">
+          <div className="text-3xl  text-white">
+            {`“Code is like humor. When you have to explain it, it’s bad.”`}
+          </div>
+
+          <div className="text-1xl  text-white">{`by Cory House`}</div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ const DocsCard: React.FC<DocsCardProps> = ({
   like
 }) => {
   return (
-    <div className="flex flex-row h-28 rounded-lg border shadow-md hover:bg-slate-900 transition-all duration-300 ease-in-out">
+    <div className="flex flex-row h-40 rounded-lg border shadow-md hover:bg-slate-900 transition-all duration-300 ease-in-out">
       <div className="basis-1/4">
         <img src={src} className="w-full h-full rounded-l-lg" />
       </div>
