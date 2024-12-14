@@ -41,8 +41,8 @@ const Home = () => {
       </div>
       <div className="pt-32 bg-green-600 h-[300px]">
         <div className="flex flex-col  pl-[550px] pr-[550px]">
-          <div className="text-5xl font-bold">mhakheancode.</div>
-          <div className="text-2xl mt-5">
+          <div className="text-5xl font-bold text-white">mhakheancode.</div>
+          <div className="text-2xl mt-5 text-white">
             Documents and Wiki for thai people.
           </div>
         </div>
