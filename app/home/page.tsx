@@ -39,12 +39,48 @@ const Home = () => {
       <div className="fixed top-0 left-0 w-full z-50  text-white">
         <Navbar />
       </div>
-      <div className="pt-32 bg-green-600 h-[300px] w-screen">
-        <div className="flex flex-col mx-auto w-[900px]">
-          <div className="text-5xl font-bold text-white">mhakheancode.</div>
-          <div className="text-2xl mt-5 text-white">
-            Documents and Wiki for thai people.
+      <div className="flex flex-row pt-32 bg-blue-950 h-[320px] w-screen">
+        <div className="mx-auto w-[900px]">
+          <div className=" flex flex-row flex-wrap items-center">
+            <div className="w-1/2">
+              <div className="flex flex-col flex-wrap w-full ">
+                <div className="text-5xl font-bold text-white">
+                  mhakheancode.
+                </div>
+                <div className="text-2xl mt-5 text-white">
+                  Documents and Wiki for thai people.
+                </div>
+              </div>
+            </div>
+            <div className="w-1/2">
+              <div className="flex flex-row-reverse">
+                <img
+                  src="/images/pug-dev.png"
+                  width={170}
+                  height={200}
+                  style={{
+                    borderRadius:100
+                  }}
+                />
+              </div>
+            </div>
           </div>
+          {/* <div className="flex flex-row flex-wrap w-full">
+            <div className="flex flex-col flex-wrap">
+              <div className="text-5xl font-bold text-white">mhakheancode.</div>
+              <div className="text-2xl mt-5 text-white">
+                Documents and Wiki for thai people.
+              </div>
+            </div>
+            <div className="flex w-full bg-red-500">
+              <img
+                className=""
+                src="/images/pug-dev.png"
+                width={170}
+                height={200}
+              />
+            </div>
+          </div> */}
         </div>
       </div>
       <div className="mobile-body">
