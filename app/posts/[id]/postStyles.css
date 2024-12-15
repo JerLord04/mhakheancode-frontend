@@ -10,6 +10,10 @@
   width: 900px;
 }
 
+.footer-style {
+  @apply   w-full bg-blue-950 text-white text-center p-3 h-12 transition-all duration-300 ease-in-out;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;

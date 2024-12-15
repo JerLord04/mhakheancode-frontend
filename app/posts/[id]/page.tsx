@@ -78,6 +78,8 @@ export async function generateMetadata({
 export default async function Post({ params }: { params: { id: string } }) {
   const postData = await getPostData(params.id);
 
+
+
   return (
     <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-y-auto">
       <div className="fixed top-0 left-0 w-full z-50  text-white">
@@ -176,6 +178,12 @@ export default async function Post({ params }: { params: { id: string } }) {
       <hr className="border-t-1 border-gray-200 my-1  w-[900px] mx-auto" />
       <div className="w-[900px] mx-auto">
         <MyProfile />
+      </div>
+
+      <div
+        className={`footer-style`}
+      >
+        Copyright © 2024 mhakheancode.
       </div>
     </div>
   );
