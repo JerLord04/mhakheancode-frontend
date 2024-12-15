@@ -11,7 +11,7 @@ interface DocsCardProps {
   src: string;
   writer: string;
   view: string;
-  like:string
+  like: string;
 }
 
 const DocsCard: React.FC<DocsCardProps> = ({
@@ -21,7 +21,7 @@ const DocsCard: React.FC<DocsCardProps> = ({
   src,
   writer,
   view,
-  like
+  like,
 }) => {
   return (
     <div className="flex flex-row h-40 rounded-lg border shadow-md hover:bg-slate-900 transition-all duration-300 ease-in-out">
@@ -42,10 +42,9 @@ const DocsCard: React.FC<DocsCardProps> = ({
               <div className="flex flex-row justify-end items-center">
                 <IoIosEye />
                 <div className="ml-2">{view}</div>
-                <AiFillLike className="ml-4"/>
+                <AiFillLike className="ml-4" />
                 <div className="ml-2">{like}</div>
               </div>
-
             </div>
           </div>
           <div className="p-2">
@@ -53,6 +52,10 @@ const DocsCard: React.FC<DocsCardProps> = ({
             <div className="w-14 cursor-pointer hover:underline hover:text-red-500 ">
               อ่านต่อ
             </div>
+          </div>
+          <div className="p-2 flex flex-row">
+            <div className="text-white font-bold">{date}</div>
+            <div className="ml-3"> 12 min read</div>
           </div>
         </div>
       </div>
