@@ -35,7 +35,7 @@ const Home = () => {
   }, [lastScrollY]);
 
   return (
-    <div className="flex flex-col w-screen  bg-gray-900 ">
+    <div className="flex flex-col w-screen bg-gray-900 ">
       <div className="fixed top-0 left-0 w-full z-50  text-white">
         <Navbar />
       </div>
