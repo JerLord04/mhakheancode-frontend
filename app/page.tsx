@@ -13,7 +13,7 @@ const Home = () => {
     router.push("/home");
   };
   return (
-    <div className="flex flex-col flex-wrap bg-blue-950 w-screen h-screen">
+    <div className="flex flex-col flex-wrap bg-blue-950  w-screen h-screen">
       <div className="fixed top-0 left-0 w-full z-50  text-white">
         <Navbar />
       </div>

@@ -1,8 +1,6 @@
 "use client";
 import "../home/appStyles.css";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { FaFileAlt } from "react-icons/fa";
 import VideoCard from "@/components/videoCard/VideoCard";
 import { IoIosLink } from "react-icons/io";
 import DocsCard from "@/components/docsCard/DocsCard";
@@ -10,10 +8,21 @@ import Navbar from "@/components/navbar/Navbar";
 import { FaTags } from "react-icons/fa";
 import TagCard from "@/components/tagCard/TagCard";
 import MyProfile from "@/components/myProfile/myProfile";
+import { AxiosInstance } from "@/utils/AxiosInstance";
+import { Post } from "@/types/Post";
+import { Response } from "@/types/ResponseType";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const [scrollDirection, setScrollDirection] = useState<string | null>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    getPostList();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +43,26 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll); // Cleanup on component unmount
     };
   }, [lastScrollY]);
+
+  const getPostList = async () => {
+    try {
+      const response = await AxiosInstance.get<Response<Post[]>>(
+        "posts/getPostsList"
+      );
+      console.log("response => ", response.data);
+      if (response.data.status) {
+        setPosts(response.data.paylaod);
+      } else {
+        console.error("Error fetching posts:", response.data.paylaod);
+      }
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
+  const navigatePosts = (id: number) => {
+    router.push(`/posts/${id}`);
+  };
 
   return (
     <div className="flex flex-col w-screen bg-gray-900 ">
@@ -119,17 +148,25 @@ const Home = () => {
             </div>
             <div className="flex flex-col justify-center text-white">
               <div className="grid grid-cols-1 gap-5 bg-gray-800 w-full p-3 border border-gray-900 rounded-b-sm">
-                {[1, 2, 3, 4, 5].map((item, index) => (
-                  <div key={index}>
+                {posts.map((item, index) => (
+                  <div
+                    key={index}
+                    // onClick={() => {
+                    //   navigatePosts(item.id);
+                    // }}
+                  >
                     <DocsCard
+                      id={item.id}
                       src="/images/87568845_1126627934354046_1928070983076282368_n.jpg"
-                      title="วิธีเป็นคนหล่อโดยไม่ต้องพยายาม"
-                      date="01/02/2024"
-                      tag="Java"
+                      title={item.topics_name}
+                      date={item.created_at.toString()}
+                      tag={item.tag}
                       writer="mhakheankode."
                       view="12.3K"
                       like="10k"
+                      htmlTag={item.md_html_text}
                     />
+
                   </div>
                 ))}
                 <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูบทความทั้งหมด >`}</div>

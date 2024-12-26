@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useCallback } from "react";
 import TagCard from "../tagCard/TagCard";
 import { IoIosEye } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
+import Link from "next/link";
 
 interface DocsCardProps {
   title: string;
@@ -12,6 +13,8 @@ interface DocsCardProps {
   writer: string;
   view: string;
   like: string;
+  id: number;
+  htmlTag: string;
 }
 
 const DocsCard: React.FC<DocsCardProps> = ({
@@ -22,6 +25,8 @@ const DocsCard: React.FC<DocsCardProps> = ({
   writer,
   view,
   like,
+  id,
+  htmlTag
 }) => {
   return (
     <div className="flex flex-row h-40 rounded-lg border shadow-md hover:bg-slate-900 transition-all duration-300 ease-in-out">
@@ -32,7 +37,7 @@ const DocsCard: React.FC<DocsCardProps> = ({
         <div className="flex flex-col">
           <div className="flex flex-rol p-2 items-center">
             <div>
-              <TagCard tag="JAVA" />
+              <TagCard tag={tag} />
             </div>
             <div className="ml-2 flex flex-row">
               <div className="font-bold">{"Writer:"}</div>
@@ -49,9 +54,18 @@ const DocsCard: React.FC<DocsCardProps> = ({
           </div>
           <div className="p-2">
             <div className="font-bold">{title}</div>
-            <div className="w-14 cursor-pointer hover:underline hover:text-red-500 ">
+            {/* <div className="w-14 cursor-pointer hover:underline hover:text-red-500 " onClick={() => {handleNavigation()}}>
               อ่านต่อ
-            </div>
+            </div> */}
+            <Link
+              className="w-14 cursor-pointer hover:underline hover:text-red-500"
+              href={{
+                pathname: `/posts/${id}`,
+                query: { html: htmlTag },
+              }}
+            >
+              อ่านต่อ
+            </Link>
           </div>
           <div className="p-2 flex flex-row">
             <div className="text-white font-bold">{date}</div>

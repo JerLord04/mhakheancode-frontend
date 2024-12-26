@@ -1,15 +1,5 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { Metadata } from "next";
-
+"use client";
 import "./postStyles.css";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
-import rehypeRaw from "rehype-raw";
-import rehypeStringify from "rehype-stringify";
 import Navbar from "@/components/navbar/Navbar";
 import { IoIosEye, IoIosLink } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
@@ -19,66 +9,13 @@ import TagCard from "@/components/tagCard/TagCard";
 import { FaShareSquare } from "react-icons/fa";
 import DocsCard from "@/components/docsCard/DocsCard";
 import MyProfile from "@/components/myProfile/myProfile";
+import React from "react";
+import { useSearchParams } from "next/navigation";
 
-interface PostData {
-  id: string;
-  title: string;
-  date: string;
-  contentHtml: string;
-}
-
-// Define the path to the posts directory
-const postsDirectory = path.join(process.cwd(), "blog");
-
-// Fetch metadata for dynamic routing
-export async function generateStaticParams() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => ({
-    id: fileName.replace(/\.md$/, ""), // Remove .md extension
-  }));
-}
-
-async function getPostData(id: string): Promise<PostData> {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  const matterResult = matter(fileContents);
-
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
-    .use(rehypeStringify);
-
-  const file = await processor.process(fileContents);
-  const contentHtml = file.toString();
-
-  console.log(contentHtml);
-
-  return {
-    id,
-    contentHtml,
-    ...matterResult.data,
-  } as PostData;
-}
-
-// Generate metadata for SEO
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
-  const post = await getPostData(params.id);
-  return {
-    title: post.title,
-  };
-}
-
-export default async function Post({ params }: { params: { id: string } }) {
-  const postData = await getPostData(params.id);
-
-
+export default function Post({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+  const html = searchParams.get("html") || "";
+  console.log("sort", html);
 
   return (
     <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-y-auto">
@@ -145,7 +82,7 @@ export default async function Post({ params }: { params: { id: string } }) {
       </div>
       <article className={`markdown-body`}>
         <div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </article>
       <hr className="border-t-1 border-gray-200 my-1  w-[900px] mx-auto" />
@@ -159,7 +96,7 @@ export default async function Post({ params }: { params: { id: string } }) {
             <div className="grid grid-cols-1 gap-5 bg-gray-800 w-full p-3 border border-gray-900 rounded-b-sm">
               {[1, 2, 3].map((item, index) => (
                 <div key={index}>
-                  <DocsCard
+                  {/* <DocsCard
                     src="/images/87568845_1126627934354046_1928070983076282368_n.jpg"
                     title="วิธีเป็นคนหล่อโดยไม่ต้องพยายาม"
                     date="01/02/2024"
@@ -167,7 +104,7 @@ export default async function Post({ params }: { params: { id: string } }) {
                     writer="mhakheankode."
                     view="12.3K"
                     like="10k"
-                  />
+                  /> */}
                 </div>
               ))}
               <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูบทความทั้งหมด >`}</div>
@@ -180,11 +117,7 @@ export default async function Post({ params }: { params: { id: string } }) {
         <MyProfile />
       </div>
 
-      <div
-        className={`footer-style`}
-      >
-        Copyright © 2024 mhakheancode.
-      </div>
+      <div className={`footer-style`}>Copyright © 2024 mhakheancode.</div>
     </div>
   );
 }

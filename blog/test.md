@@ -48,3 +48,10 @@ System.out.println("Java highlight");
 หรือทั้งเอียงและหนา ==> **ตัวหนา _ตัวเอียง_**
 
 หรือจะขีดฆ่าตัวเอง ==> ~~ขีดฆ่า~~
+
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
