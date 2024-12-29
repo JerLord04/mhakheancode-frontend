@@ -1,0 +1,21 @@
+/* .mobile-body {
+  @apply flex flex-col flex-wrap pl-[550px] pr-[550px] h-auto mt-2 bg-gray-900 pt-1 pb-20 border-l-2 border-r-2 w-screen mx-auto;
+} */
+
+.mobile-body{
+  @apply flex flex-col flex-wrap mx-auto w-[900px]  h-auto 
+}
+
+.footer-style {
+  @apply fixed  w-full bg-blue-950 text-white text-center p-3 h-12 transition-all duration-300 ease-in-out;
+}
+
+@screen xs {
+  .mobile-body {
+    @apply flex flex-col p-3;
+  }
+}
+
+.circle {
+    border-radius: 50%;
+}
