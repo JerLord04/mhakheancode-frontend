@@ -9,13 +9,37 @@ import TagCard from "@/components/tagCard/TagCard";
 import { FaShareSquare } from "react-icons/fa";
 import DocsCard from "@/components/docsCard/DocsCard";
 import MyProfile from "@/components/myProfile/myProfile";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { Post as PostType } from "@/types/Post";
+import { AxiosInstance } from "@/utils/AxiosInstance";
+import { Response } from "@/types/ResponseType";
 
 export default function Post({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
   const html = searchParams.get("html") || "";
-  console.log("sort", html);
+  const title = searchParams.get("title") || "";
+  const [posts, setPosts] = useState<PostType[]>([]);
+
+  useEffect(() => {
+    getPostList();
+  }, []);
+
+  const getPostList = async () => {
+    try {
+      const response = await AxiosInstance.get<Response<PostType[]>>(
+        "posts/getPostsList"
+      );
+      console.log("response => ", response.data);
+      if (response.data.status) {
+        setPosts(response.data.paylaod);
+      } else {
+        console.error("Error fetching posts:", response.data.paylaod);
+      }
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-y-auto">
@@ -24,7 +48,7 @@ export default function Post({ params }: { params: { id: string } }) {
       </div>
       <div className="w-[900px] h-auto mx-auto pt-32 ">
         <div className="text-white font-bold text-3xl">
-          การเป็นคนหล่อโดยไม่ต้องพยายาม
+          {title}
         </div>
         <div className="flex flex-row flex-wrap mt-10 ">
           <div className="flex flex-row w-1/2">
@@ -94,17 +118,20 @@ export default function Post({ params }: { params: { id: string } }) {
           </div>
           <div className="flex flex-col justify-center text-white">
             <div className="grid grid-cols-1 gap-5 bg-gray-800 w-full p-3 border border-gray-900 rounded-b-sm">
-              {[1, 2, 3].map((item, index) => (
+              {posts.map((item, index) => (
                 <div key={index}>
-                  {/* <DocsCard
+                  <DocsCard
+                    id={item.id}
                     src="/images/87568845_1126627934354046_1928070983076282368_n.jpg"
-                    title="วิธีเป็นคนหล่อโดยไม่ต้องพยายาม"
-                    date="01/02/2024"
-                    tag="Java"
+                    title={item.topics_name}
+                    date={item.created_at.toString()}
+                    tag={item.tag}
                     writer="mhakheankode."
                     view="12.3K"
                     like="10k"
-                  /> */}
+                    htmlTag={item.md_html_text}
+                    minRead={item.min_read}
+                  />
                 </div>
               ))}
               <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูบทความทั้งหมด >`}</div>

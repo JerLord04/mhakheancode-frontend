@@ -7,6 +7,8 @@ interface Post {
   md_html_text: string;
   created_at: Date;
   updated_at: Date;
+  post_image:string;
+  min_read:string;
 }
 
 export type { Post };

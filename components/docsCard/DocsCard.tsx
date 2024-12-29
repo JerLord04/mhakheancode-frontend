@@ -15,6 +15,7 @@ interface DocsCardProps {
   like: string;
   id: number;
   htmlTag: string;
+  minRead: string
 }
 
 const DocsCard: React.FC<DocsCardProps> = ({
@@ -26,7 +27,8 @@ const DocsCard: React.FC<DocsCardProps> = ({
   view,
   like,
   id,
-  htmlTag
+  htmlTag,
+  minRead
 }) => {
   return (
     <div className="flex flex-row h-40 rounded-lg border shadow-md hover:bg-slate-900 transition-all duration-300 ease-in-out">
@@ -61,15 +63,15 @@ const DocsCard: React.FC<DocsCardProps> = ({
               className="w-14 cursor-pointer hover:underline hover:text-red-500"
               href={{
                 pathname: `/posts/${id}`,
-                query: { html: htmlTag },
+                query: { html: htmlTag , title : title },
               }}
             >
               อ่านต่อ
             </Link>
           </div>
           <div className="p-2 flex flex-row">
-            <div className="text-white font-bold">{date}</div>
-            <div className="ml-3"> 12 min read</div>
+            <div className="text-white font-bold">{date.substring(0,10)}</div>
+            <div className="ml-3"> {minRead}</div>
           </div>
         </div>
       </div>

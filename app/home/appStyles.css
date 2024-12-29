@@ -3,7 +3,7 @@
 } */
 
 .mobile-body{
-  @apply flex flex-col flex-wrap mx-auto w-[900px]  h-auto
+  @apply flex flex-col flex-wrap mx-auto w-[900px]  h-auto 
 }
 
 .footer-style {

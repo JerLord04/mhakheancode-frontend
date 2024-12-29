@@ -1,0 +1,7 @@
+.footer-style {
+  @apply fixed  w-full bg-blue-950 text-white text-center p-3 h-12 transition-all duration-300 ease-in-out;
+}
+
+.mobile-body{
+    @apply flex flex-col flex-wrap mx-auto w-[900px]  h-screen
+  }

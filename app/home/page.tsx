@@ -60,12 +60,8 @@ const Home = () => {
     }
   };
 
-  const navigatePosts = (id: number) => {
-    router.push(`/posts/${id}`);
-  };
-
   return (
-    <div className="flex flex-col w-screen bg-gray-900 ">
+    <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-y-auto">
       <div className="fixed top-0 left-0 w-full z-50  text-white">
         <Navbar />
       </div>
@@ -95,22 +91,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-          {/* <div className="flex flex-row flex-wrap w-full">
-            <div className="flex flex-col flex-wrap">
-              <div className="text-5xl font-bold text-white">mhakheancode.</div>
-              <div className="text-2xl mt-5 text-white">
-                Documents and Wiki for thai people.
-              </div>
-            </div>
-            <div className="flex w-full bg-red-500">
-              <img
-                className=""
-                src="/images/pug-dev.png"
-                width={170}
-                height={200}
-              />
-            </div>
-          </div> */}
         </div>
       </div>
       <div className="mobile-body">
@@ -149,12 +129,7 @@ const Home = () => {
             <div className="flex flex-col justify-center text-white">
               <div className="grid grid-cols-1 gap-5 bg-gray-800 w-full p-3 border border-gray-900 rounded-b-sm">
                 {posts.map((item, index) => (
-                  <div
-                    key={index}
-                    // onClick={() => {
-                    //   navigatePosts(item.id);
-                    // }}
-                  >
+                  <div key={index}>
                     <DocsCard
                       id={item.id}
                       src="/images/87568845_1126627934354046_1928070983076282368_n.jpg"
@@ -165,8 +140,8 @@ const Home = () => {
                       view="12.3K"
                       like="10k"
                       htmlTag={item.md_html_text}
+                      minRead={item.min_read}
                     />
-
                   </div>
                 ))}
                 <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูบทความทั้งหมด >`}</div>
