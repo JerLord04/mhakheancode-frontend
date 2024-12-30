@@ -14,8 +14,10 @@ import { useSearchParams } from "next/navigation";
 import { Post as PostType } from "@/types/Post";
 import { AxiosInstance } from "@/utils/AxiosInstance";
 import { Response } from "@/types/ResponseType";
+import { useRouter } from "next/navigation";
 
 export default function Post({ params }: { params: { id: string } }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const html = searchParams.get("html") || "";
   const title = searchParams.get("title") || "";
@@ -24,6 +26,10 @@ export default function Post({ params }: { params: { id: string } }) {
   useEffect(() => {
     getPostList();
   }, []);
+
+  const handleNavigation = () => {
+    router.push("/posts");
+  };
 
   const getPostList = async () => {
     try {
@@ -134,7 +140,7 @@ export default function Post({ params }: { params: { id: string } }) {
                   />
                 </div>
               ))}
-              <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูบทความทั้งหมด >`}</div>
+              <div className="mt-6 cursor-pointer hover:underline hover:text-red-700" onClick={handleNavigation}>{`ดูบทความทั้งหมด >`}</div>
             </div>
           </div>
         </div>

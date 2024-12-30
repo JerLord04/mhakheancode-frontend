@@ -44,6 +44,10 @@ const Home = () => {
     };
   }, [lastScrollY]);
 
+  const handleNavigation = () => {
+    router.push("/posts");
+  };
+
   const getPostList = async () => {
     try {
       const response = await AxiosInstance.get<Response<Post[]>>(
@@ -65,7 +69,7 @@ const Home = () => {
       <div className="fixed top-0 left-0 w-full z-50  text-white">
         <Navbar />
       </div>
-      <div className="flex flex-row pt-32 bg-blue-950 h-[320px] w-screen">
+      <div className="flex flex-row pt-32 bg-blue-950 h-[320px] w-screen pb-10">
         <div className="mx-auto w-[900px]">
           <div className=" flex flex-row flex-wrap items-center">
             <div className="w-1/2">
@@ -144,7 +148,7 @@ const Home = () => {
                     />
                   </div>
                 ))}
-                <div className="mt-6 cursor-pointer hover:underline hover:text-red-700">{`ดูบทความทั้งหมด >`}</div>
+                <div className="mt-6 cursor-pointer hover:underline hover:text-red-700" onClick={handleNavigation}>{`ดูบทความทั้งหมด >`}</div>
               </div>
             </div>
           </div>
