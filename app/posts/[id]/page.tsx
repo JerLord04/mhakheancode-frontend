@@ -16,7 +16,7 @@ import { AxiosInstance } from "@/utils/AxiosInstance";
 import { Response } from "@/types/ResponseType";
 import { useRouter } from "next/navigation";
 
-export default function Post({ params }: { params: { id: string } }) {
+export default function Post() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const html = searchParams.get("html") || "";
@@ -49,7 +49,8 @@ export default function Post({ params }: { params: { id: string } }) {
 
   return (
     <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-y-auto">
-      <div className="fixed top-0 left-0 w-full z-50  text-white">
+      {/* <div className="fixed top-0 left-0 w-full z-50  text-white"> */}
+      <div>
         <Navbar />
       </div>
       <div className="w-[900px] h-auto mx-auto pt-32 ">
@@ -133,8 +134,8 @@ export default function Post({ params }: { params: { id: string } }) {
                     date={item.created_at.toString()}
                     tag={item.tag}
                     writer="mhakheankode."
-                    view="12.3K"
-                    like="10k"
+                    // view="12.3K"
+                    // like="10k"
                     htmlTag={item.md_html_text}
                     minRead={item.min_read}
                   />
@@ -150,7 +151,8 @@ export default function Post({ params }: { params: { id: string } }) {
         <MyProfile />
       </div>
 
-      <div className={`footer-style`}>Copyright © 2024 mhakheancode.</div>
+
+      <div className={`w-100 bg-blue-950 text-white text-center p-3 h-12`}>Copyright © 2024 mhakheancode.</div>
     </div>
   );
 }

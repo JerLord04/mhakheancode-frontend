@@ -65,11 +65,8 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-y-auto">
-      <div className="fixed top-0 left-0 w-full z-50  text-white">
-        <Navbar />
-      </div>
-      <div className="flex flex-row pt-32 bg-blue-950 h-[320px] w-screen pb-10">
+    <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+      <div className="flex flex-row pt-32 bg-blue-950 h-[320px] pb-10">
         <div className="mx-auto w-[900px]">
           <div className=" flex flex-row flex-wrap items-center">
             <div className="w-1/2">
@@ -141,8 +138,8 @@ const Home = () => {
                       date={item.created_at.toString()}
                       tag={item.tag}
                       writer="mhakheankode."
-                      view="12.3K"
-                      like="10k"
+                      // view="12.3K"
+                      // like="10k"
                       htmlTag={item.md_html_text}
                       minRead={item.min_read}
                     />

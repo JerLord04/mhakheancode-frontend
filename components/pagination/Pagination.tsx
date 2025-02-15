@@ -7,10 +7,7 @@ interface PaginationsProps {
   totalItem: number;
 }
 
-const Paginations: React.FC<PaginationsProps> = ({
-  itemPerPage,
-  totalItem,
-}) => {
+const Paginations: React.FC<PaginationsProps> = () => {
   const calCulatePagination = () => {
     return <div className="text-white"> Test</div>;
   };

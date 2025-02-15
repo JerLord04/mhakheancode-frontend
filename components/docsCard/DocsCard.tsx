@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React from "react";
 import TagCard from "../tagCard/TagCard";
 import { IoIosEye } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
@@ -10,9 +10,9 @@ interface DocsCardProps {
   date: string;
   tag: string;
   src: string;
-  writer: string;
-  view: string;
-  like: string;
+  writer?: string;
+  view?: string;
+  like?: string;
   id: number;
   htmlTag: string;
   minRead: string
@@ -49,8 +49,8 @@ const DocsCard: React.FC<DocsCardProps> = ({
               <div className="flex flex-row justify-end items-center">
                 <IoIosEye />
                 <div className="ml-2">{view}</div>
-                <AiFillLike className="ml-4" />
-                <div className="ml-2">{like}</div>
+                {/* <AiFillLike className="ml-4" />
+                <div className="ml-2">{like}</div> */}
               </div>
             </div>
           </div>

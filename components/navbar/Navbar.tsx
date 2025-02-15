@@ -1,13 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import { FaRegMoon } from "react-icons/fa";
-import { FaMoon } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { SiYoutubekids } from "react-icons/si";
-import { AiOutlineMenu } from "react-icons/ai";
 import { FaWindowClose } from "react-icons/fa";
 
 import "../../components/navbar/NavbarStyle.css";
@@ -16,27 +12,10 @@ import SearchInput from "../searchInput/SearchInput";
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const [moonColorFlg, setMoonColorFlg] = useState(true);
   const [text, setText] = useState<string>("");
-  const [openSideMenu, setOpenSideMenu] = useState<boolean>(true);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const router = useRouter();
 
-  const iconMoonMouseHover = () => {
-    setMoonColorFlg(false);
-  };
-
-  const iconMoonMouseLeave = () => {
-    setMoonColorFlg(true);
-  };
-
-  const pressOpenMenu = () => {
-    setOpenSideMenu(false);
-  };
-
-  const dispressOpenMenu = () => {
-    setOpenSideMenu(true);
-  };
 
   useEffect(() => {
     console.log(text);

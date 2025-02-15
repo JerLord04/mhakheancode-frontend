@@ -1,4 +1,3 @@
-import { StringifyOptions } from "node:querystring";
 import React, { ReactNode } from "react";
 
 interface CommondButtonProps {

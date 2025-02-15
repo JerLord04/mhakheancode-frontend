@@ -14,9 +14,10 @@ const Home = () => {
   };
   return (
     <div className="flex flex-col flex-wrap bg-blue-950  w-screen h-screen">
-      <div className="fixed top-0 left-0 w-full z-50  text-white">
+      {/* <div className="fixed top-0 left-0 w-full z-50  text-white"> */}
+        {/* <div>
         <Navbar />
-      </div>
+      </div> */}
       <div className="flex flex-col justify-center items-center h-full w-[1000px] mx-auto">
         <div className="text-7xl font-bold text-white">mhakheancode.</div>
         <div className="flex flex-row mt-5">
